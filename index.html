@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio - Olivia Stefany</title>
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+
+
+
+/* General Monochrome Dark Theme */
+body {
+    background-color: #111; /* Dark background */
+    color: #e0e0e0;         /* Light gray text */
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    padding-top: 70px;      /* Space for sticky navbar */
+    scroll-behavior: smooth;
+}
+
+/* Headings */
+h2 {
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 30px;
+    position: relative;
+}
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #fff, #888);
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+.navbar-nav .nav-link {
+    color: #e0e0e0;
+    transition: 0.3s;
+}
+.navbar-nav .nav-link:hover {
+    color: #fff;
+}
+
+/* About Section */
+.about-section {
+    text-align: center;
+    padding: 80px 20px;
+}
+.about-section img {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    border: 3px solid #555;
+    transition: transform 0.3s;
+}
+.about-section img:hover {
+    transform: scale(1.05);
+}
+.about-section p {
+    color: #ccc;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+}
+
+/* Projects Section */
+.projects-section {
+    padding: 80px 20px;
+}
+
+.projects-section .card {
+    background-color: #1b1b1b;
+    color: #ccc;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 300px;
+    height: 500px;   /* 🔑 semua card fix tinggi sama persis */
+    overflow: hidden; /* kalau isi terlalu panjang biar nggak ngebuka box */
+    display: flex;
+    flex-direction: column;
+}
+
+.projects-section .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+.projects-section .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.projects-section .card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* teks di atas, tombol di bawah */
+}
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #fff;
+    color: #111;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #888;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-secondary:hover {
+    background: #fff;
+    color: #111;
+}
+
+/* Skills Section */
+.skills-section {
+    background-color: #1a1a1a;
+    padding: 80px 20px;
+}
+.skills-section .card {
+    background-color: #222;
+}
+.skills-section .card-img-top {
+    background-color: #111;
+    height: 180px;
+    object-fit: contain;
+    padding: 20px;
+}
+.skills-section .btn-outline-primary {
+    color: #fff;
+    border-color: #fff;
+}
+.skills-section .btn-outline-primary:hover {
+    color: #111;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+/* Contact Section */
+.contact-section {
+    background-color: #111;
+    padding: 80px 20px;
+    color: #ccc;
+}
+.contact-section a {
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+.contact-section a:hover {
+    color: #888;
+}
+.social-icon {
+    width: 50px;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+.social-icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+    .navbar-collapse {
+        background-color: #111;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Sticky Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
+  <div class="container-fluid"> <!-- full width so name hugs the left -->
+    <!-- Left corner brand (your name + portfolio) -->
+    <a class="navbar-brand" href="#home" 
+       style="color: #ffffff; font-weight: bold; font-size: 1.3rem; margin-left: 0;">
+      Olivia | Portfolio
+    </a>
+    
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navigation links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Extra CSS -->
+<style>
+  /* Navbar link hover with purple accent */
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: #8a2be2; /* subtle purple accent on hover */
+    border-bottom: 2px solid #8a2be2;
+  }
+</style>
+
+
+<!-- Extra CSS -->
+<style>
+  /* Navbar link hover with purple accent */
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: #8a2be2; /* purple on hover */
+    border-bottom: 2px solid #8a2be2;
+  }
+</style>
+
+
+    <!-- Navigation links -->
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Extra CSS -->
+<style>
+  /* Navbar link hover with purple accent */
+  .navbar-dark .navbar-nav .nav-link {
+    color: #fff;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+  .navbar-dark .navbar-nav .nav-link:hover {
+    color: #da70d6; /* purple on hover */
+    border-bottom: 2px solid #da70d6;
+  }
+</style>
+
+
+<!-- Home / Hero Section -->
+<section id="home" class="hero-section" style="height: 100vh; background-color: #111; display: flex; justify-content: center; align-items: center;">
+  <div class="container" style="display: flex; flex-direction: row; align-items: center; gap: 50px; max-width: 1000px; width: 100%; padding: 20px;">
+    
+    <!-- Greeting & Intro (Left) -->
+    <div style="flex: 1; min-width: 280px; color: #fff; text-align: left;">
+      <h1 style="font-size: 3rem; font-weight: 700;">Hey There, I’m Olivia</h1>
+      <p style="font-size: 1.5rem; color: #ccc; max-width: 500px; margin-top: 20px;">
+        Data Scientist | Machine Learning & AI | Statistics & Analytics
+      </p>
+      <a href="#contact" class="email-button" style="display: inline-block; margin-top: 30px;">Get in Touch</a>
+    </div>
+    
+    <!-- Profile Picture (Right) -->
+    <div style="flex: 0 0 auto; margin-left: 40px; display: flex; justify-content: center;">
+      <img src="images/about/profilepict1.jpg" alt="Olivia Stefany" style="width: 220px; height: 220px; border-radius: 50%; object-fit: cover; border: 3px solid #fff;">
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+
+
+
+<!-- About Section -->
+<section id="about" class="about-section">
+  <div class="container">
+    <h2>About Me</h2>
+    <p>Data isn’t just numbers to me. It’s a window to smarter decisions and new opportunities. I uncover the hidden stories in every dataset, turn complexity into clarity, and create insights that drive real impact.</p>
+    <p>Curious, proactive, and driven, I’m ready to help you achieve your goals and make your vision a reality. Let’s turn data into strategies, solutions, and results that make a difference.</p>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="projects-section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Projects</h2>
+
+   <div class="position-relative">
+  
+  <!-- ✅ viewport (hanya muat 3 card) -->
+  <div class="overflow-hidden" style="max-width: 960px; margin: auto;">
+    <div id="projectsRow" class="d-flex" style="gap: 20px;">
+      
+      <!-- Project 1 -->
+      <div class="card flex-shrink-0" style="width: 300px;">
+        <img src="images/projects/3.jpg" class="card-img-top project-img" alt="Project 3">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Detect & Diagnose: Brain Tumor Classification with AI</h5>
+          <p class="card-text">A deep learning project using CNNs and transfer learning to classify brain CT scans, identifying tumor types or normal brains, helping accelerate and improve diagnostic accuracy.</p>
+          <div class="mt-auto">
+            <a href="https://github.com/oliviastefany/img-deeplearning-brain" target="_blank" class="btn btn-dark w-100">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card flex-shrink-0" style="width: 300px;">
+        <img src="images/projects/4.jpg" class="card-img-top project-img" alt="Project 4">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Predicting Credit Card Approval</h5>
+          <p class="card-text">This project uses machine learning models to predict credit card approval based on applicant data such as income, credit score, and employment history, helping automate decisions and improve accuracy.</p>
+          <div class="mt-auto">
+            <a href="https://github.com/oliviastefany/credit-card-approval" target="_blank" class="btn btn-dark w-100">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card flex-shrink-0" style="width: 300px;">
+        <img src="images/projects/2.jpg" class="card-img-top project-img" alt="Project 2">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Unlocking Housing Market Insights with Linear Regression</h5>
+          <p class="card-text">Implemented a Linear Regression model to forecast house prices, emphasizing data preparation, feature evaluation, and model performance metrics.</p>
+          <div class="mt-auto">
+            <a href="https://github.com/oliviastefany/regression-house" target="_blank" class="btn btn-dark w-100">View Project</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="card flex-shrink-0" style="width: 300px;">
+        <img src="images/projects/1.jpg" class="card-img-top project-img" alt="Project 1">
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">Boosting Sales: Impact of a Training Program</h5>
+          <p class="card-text">Analyzed a small dataset of 25 transactions to evaluate the impact of a sales training program on average sales, highlighting measurable performance improvements.</p>
+          <div class="mt-auto">
+            <a href="https://github.com/oliviastefany/statistic-project" target="_blank" class="btn btn-dark w-100">View Project</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arrows -->
+  <button class="btn btn-dark position-absolute top-50 start-0 translate-middle-y" onclick="scrollProjects(-1)">‹</button>
+  <button class="btn btn-dark position-absolute top-50 end-0 translate-middle-y" onclick="scrollProjects(1)">›</button>
+</div>
+
+
+<!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- ✅ JavaScript custom kamu taruh di sini -->
+  <script>
+    let currentIndex = 0;
+    const cardsPerView = 3; // tampil 3 per layar
+    const cardWidth = 320; // 300px + 20px gap
+    const row = document.getElementById('projectsRow');
+    const totalCards = row.children.length;
+
+    function scrollProjects(direction) {
+      const maxIndex = Math.ceil(totalCards / cardsPerView) - 1;
+      currentIndex += direction;
+
+      if (currentIndex < 0) currentIndex = 0;
+      if (currentIndex > maxIndex) currentIndex = maxIndex;
+
+      row.style.transform = `translateX(${-currentIndex * cardWidth * cardsPerView}px)`;
+    }
+  </script>
+</body>
+</html>
+
+
+<!-- Extra CSS -->
+<style>
+  .card-img-top {
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+  }
+  .card {
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  .btn-dark {
+    background-color: #333;
+    color: #fff;
+    border: none;
+  }
+  .btn-dark:hover {
+    background-color: #555;
+    color: #fff;
+  }
+</style>
+
+
+
+
+
+<!-- Skills Section -->
+<section id="skills" class="skills-section mt-5">
+  <div class="container">
+    <h2 class="text-center">Skills</h2>
+    
+    <div class="mb-4">
+      <h5>Python and Programming</h5>
+      <div class="progress" style="height: 20px; background-color: #222;">
+        <div class="progress-bar" role="progressbar" style="width: 80%; background-color: #8a2be2;">
+          <span style="color:#ffffff; font-weight:bold;">80%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h5>Databases & Querying (SQL)</h5>
+      <div class="progress" style="height: 20px; background-color: #222;">
+        <div class="progress-bar" role="progressbar" style="width: 70%; background-color: #8a2be2;">
+          <span style="color:#ffffff; font-weight:bold;">70%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h5>Data Wrangling</h5>
+      <div class="progress" style="height: 20px; background-color: #222;">
+        <div class="progress-bar" role="progressbar" style="width: 90%; background-color: #8a2be2;">
+          <span style="color:#ffffff; font-weight:bold;">90%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h5>Machine Learning</h5>
+      <div class="progress" style="height: 20px; background-color: #222;">
+        <div class="progress-bar" role="progressbar" style="width: 85%; background-color: #8a2be2;">
+          <span style="color:#ffffff; font-weight:bold;">85%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h5>Deep Learning and AI</h5>
+      <div class="progress" style="height: 20px; background-color: #222;">
+        <div class="progress-bar" role="progressbar" style="width: 65%; background-color: #8a2be2;">
+          <span style="color:#ffffff; font-weight:bold;">65%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h5>Statistics and Math</h5>
+      <div class="progress" style="height: 20px; background-color: #222;">
+        <div class="progress-bar" role="progressbar" style="width: 90%; background-color: #8a2be2;">
+          <span style="color:#ffffff; font-weight:bold;">90%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <h5>Data Visualization</h5>
+      <div class="progress" style="height: 20px; background-color: #222;">
+        <div class="progress-bar" role="progressbar" style="width: 80%; background-color: #8a2be2;">
+          <span style="color:#ffffff; font-weight:bold;">80%</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- Contact Section -->
+<section id="contact" class="contact-section text-center">
+  <div class="container">
+    <h2>Contact Me</h2>
+    <p>Email: oliviastefanyc@gmail.com | Phone: (+86)18668233076</p>
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-2 col-md-4 mb-4">
+        <a href="https://linkedin.com/in/oliviastefanycan" target="_blank">
+          <img src="icons/linkedin.PNG" class="social-icon" alt="LinkedIn"><br>LinkedIn
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-4 mb-4">
+        <a href="https://github.com/oliviastefany" target="_blank">
+          <img src="icons/github.PNG" class="social-icon" alt="GitHub"><br>GitHub
+        </a>
+      </div>
+      <div class="col-lg-2 col-md-4 mb-4">
+        <a href="https://wa.me/6285220864585" target="_blank">
+          <img src="icons/whatsapp.PNG" class="social-icon" alt="WhatsApp"><br>WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<a href="mailto:oliviastefanyc@gmail.com?subject=Hello%20Olivia&body=I%20want%20to%20connect%20with%20you." 
+   class="email-button">
+   Send me an Email
+</a>
+
+
+<style>
+.email-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+  z-index: 1000;
+}
+
+.email-button:hover {
+  background-color: white;
+  color: black;
+  border: 1px solid black;
+}
+</style>
+
+
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
