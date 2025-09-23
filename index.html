@@ -181,6 +181,23 @@
 .custom-swiper-button-prev { left: -50px; }
 .custom-swiper-button-next { right: -50px; }
 
+.swiper-scrollbar {
+  height: 200px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 2200px;
+}
+
+.swiper-scrollbar-drag {
+  background: #8a2be2;
+  border-radius: 2200px; /* warna drag bar */
+}
+
+/* Tambahkan jarak bawah slider / scrollbar */
+.projects-section .swiper {
+  padding-bottom: 100px; /* jarak antara project box dan scrollbar */
+}
+
+
 /* Buttons */
 .btn-primary,
 .btn-secondary {
@@ -393,6 +410,7 @@
     <!-- Swiper -->
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
+
         <!-- Project 1 -->
         <div class="swiper-slide">
           <div class="card h-100">
@@ -451,41 +469,18 @@
 
       </div>
 
-      <div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <!-- slides -->
-  </div>
-</div>
 
-<!-- Panah di luar swiper -->
-<div class="custom-swiper-button-prev"></div>
-<div class="custom-swiper-button-next"></div>
+  <!-- Scrollbar visual -->
+    <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+</section>
 
 
 
 <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- ✅ JavaScript custom kamu taruh di sini -->
-  <script>
-    let currentIndex = 0;
-    const cardsPerView = 3; // tampil 3 per layar
-    const cardWidth = 320; // 300px + 20px gap
-    const row = document.getElementById('projectsRow');
-    const totalCards = row.children.length;
-
-    function scrollProjects(direction) {
-      const maxIndex = Math.ceil(totalCards / cardsPerView) - 1;
-      currentIndex += direction;
-
-      if (currentIndex < 0) currentIndex = 0;
-      if (currentIndex > maxIndex) currentIndex = maxIndex;
-
-      row.style.transform = `translateX(${-currentIndex * cardWidth * cardsPerView}px)`;
-    }
-  </script>
-</body>
-</html>
 
 
 <!-- Extra CSS -->
@@ -654,28 +649,27 @@
 
 
 <!-- Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-</body>
 <script>
   const swiper = new Swiper(".mySwiper", {
     slidesPerView: 3,
     spaceBetween: 20,
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
+    loop: false,
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      draggable: true,   // biar bisa digeser
     },
     breakpoints: {
-      0: { slidesPerView: 1 },     // HP
-      576: { slidesPerView: 2 },   // small tablet
-      992: { slidesPerView: 3 },   // desktop/laptop
+      0: { slidesPerView: 1 },
+      576: { slidesPerView: 2 },
+      992: { slidesPerView: 3 },
     },
   });
 </script>
+
+</body>
 
 </html>
 
