@@ -6,37 +6,42 @@
 <title>Portfolio - Olivia Stefany</title>
 
 <!-- Bootstrap CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<style>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Swiper CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"
+/>
+
 
 
 
 /* General Monochrome Dark Theme */
-body {
-    background-color: #111; /* Dark background */
-    color: #e0e0e0;         /* Light gray text */
-    font-family: 'Arial', sans-serif;
-    font-weight: 400;
-    padding-top: 70px;      /* Space for sticky navbar */
-    scroll-behavior: smooth;
-}
+<style>
+    /* ===== General Dark Theme ===== */
+    body {
+      background-color: #111;
+      color: #e0e0e0;
+      font-family: 'Arial', sans-serif;
+      padding-top: 70px; /* space for sticky navbar */
+      scroll-behavior: smooth;
+    }
 
-/* Headings */
-h2 {
-    color: #fff;
-    font-weight: 600;
-    margin-bottom: 30px;
-    position: relative;
-}
-h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: linear-gradient(90deg, #fff, #888);
-    margin: 10px auto 0 auto;
-    border-radius: 2px;
-}
+    h2 {
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 30px;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, #fff, #888);
+      margin: 10px auto 0 auto;
+      border-radius: 2px;
+    }
 
 /* Navbar */
 .navbar {
@@ -74,40 +79,138 @@ h2::after {
 }
 
 /* Projects Section */
-/* Projects Section */
 .projects-section {
-  padding: 80px 20px;
+    padding: 80px 20px;
 }
 
 .projects-section .card {
-  background-color: #1b1b1b !important; /* paksa override bootstrap */
-  color: #ccc !important;
-  border: none !important;
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-  height: 500px;   /* semua box sama tinggi */
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
+    background-color: #1b1b1b;
+    color: #ccc;
+    border: none;
+    border-radius: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    width: 300px;
+    height: 500px;   /* 🔑 semua card fix tinggi sama persis */
+    overflow: hidden; /* kalau isi terlalu panjang biar nggak ngebuka box */
+    display: flex;
+    flex-direction: column;
 }
 
 .projects-section .card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
 }
 
 .projects-section .card-img-top {
-  height: 180px;
-  object-fit: cover;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+    height: 180px;
+    object-fit: cover;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+/* Posisi panah Swiper */
+.swiper-button-prev,
+.swiper-button-next {
+  z-index: index 2;
+  color: #8a2be2;  /* warna arrow */
+  top: 50%;
+  width: 40px;
+  height: 40px;
+  margin-top: -20px;
 }
 
+.swiper-button-prev {
+  left: 10px;  /* geser panah kiri lebih ke pinggir */
+}
+
+.swiper-button-next {
+  right: 10px;   /* geser panah kanan lebih ke pinggir */
+}
+
+.swiper-button-prev::after,
+.swiper-button-next::after {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Pastikan Swiper container center di page */
+.projects-section .swiper {
+  width: 100%;
+  max-width: 1200px; /* maksimal lebar project area */
+  margin: 0 auto;    /* center */
+  padding-left: 20px;  /* ruang kiri */
+  padding-right: 20px; /* ruang kanan */
+  box-sizing: border-box;
+}
+
+/* Pastikan slide tetap di bawah panah */
+.swiper-slide {
+  position: relative;
+  z-index: 1;
+}
+
+/* Penyesuaian untuk mobile */
+@media (max-width: 992px) {
+  .swiper-button-prev { left: -10px; }
+  .swiper-button-next { right: -10px; }
+}
+
+
 .projects-section .card-body {
-  flex: 1;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* teks di atas, tombol di bawah */
+}
+
+
+.custom-swiper-button-prev,
+.custom-swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border-radius: 50%;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.custom-swiper-button-prev { left: -50px; }
+.custom-swiper-button-next { right: -50px; }
+
+/* Buttons */
+.btn-primary,
+.btn-secondary {
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #fff;
+    color: #111;
+    border: none;
+}
+
+.btn-primary:hover {
+    background: #888;
+    color: #fff;
+}
+
+.btn-secondary {
+    background: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+}
+
+.btn-secondary:hover {
+    background: #fff;
+    color: #111;
 }
 
 /* Skills Section */
@@ -290,66 +393,77 @@ h2::after {
   <div class="container">
     <h2 class="text-center mb-5">Projects</h2>
 
-   <div class="position-relative">
-  
-  <!-- ✅ viewport (hanya muat 3 card) -->
-  <div class="overflow-hidden" style="max-width: 960px; margin: auto;">
-    <div id="projectsRow" class="d-flex" style="gap: 20px;">
-      
-      <!-- Project 1 -->
-      <div class="card flex-shrink-0" style="width: 300px;">
-        <img src="images/projects/3.jpg" class="card-img-top project-img" alt="Project 3">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Detect & Diagnose: Brain Tumor Classification with AI</h5>
-          <p class="card-text">A deep learning project using CNNs and transfer learning to classify brain CT scans, identifying tumor types or normal brains, helping accelerate and improve diagnostic accuracy.</p>
-          <div class="mt-auto">
-            <a href="https://github.com/oliviastefany/img-deeplearning-brain" target="_blank" class="btn btn-dark w-100">View Project</a>
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- Project 1 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="images/projects/3.jpg" class="card-img-top" alt="Project 3">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Detect & Diagnose: Brain Tumor Classification with AI</h5>
+              <p class="card-text">A deep learning project using CNNs and transfer learning to classify brain CT scans, identifying tumor types or normal brains, helping accelerate and improve diagnostic accuracy.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/oliviastefany/img-deeplearning-brain" target="_blank" class="btn btn-dark w-100">View Project</a>
+              </div>
+            </div>
           </div>
         </div>
+
+        <!-- Project 2 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="images/projects/4.jpg" class="card-img-top" alt="Project 4">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Predicting Credit Card Approval</h5>
+              <p class="card-text">This project uses machine learning models to predict credit card approval based on applicant data such as income, credit score, and employment history, helping automate decisions and improve accuracy.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/oliviastefany/credit-card-approval" target="_blank" class="btn btn-dark w-100">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="images/projects/2.jpg" class="card-img-top" alt="Project 2">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Unlocking Housing Market Insights with Linear Regression</h5>
+              <p class="card-text">Implemented a Linear Regression model to forecast house prices, emphasizing data preparation, feature evaluation, and model performance metrics.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/oliviastefany/regression-house" target="_blank" class="btn btn-dark w-100">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="swiper-slide">
+          <div class="card h-100">
+            <img src="images/projects/1.jpg" class="card-img-top" alt="Project 1">
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title">Boosting Sales: Impact of a Training Program</h5>
+              <p class="card-text">Analyzed a small dataset of 25 transactions to evaluate the impact of a sales training program on average sales, highlighting measurable performance improvements.</p>
+              <div class="mt-auto">
+                <a href="https://github.com/oliviastefany/statistic-project" target="_blank" class="btn btn-dark w-100">View Project</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- Project 2 -->
-      <div class="card flex-shrink-0" style="width: 300px;">
-        <img src="images/projects/4.jpg" class="card-img-top project-img" alt="Project 4">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Predicting Credit Card Approval</h5>
-          <p class="card-text">This project uses machine learning models to predict credit card approval based on applicant data such as income, credit score, and employment history, helping automate decisions and improve accuracy.</p>
-          <div class="mt-auto">
-            <a href="https://github.com/oliviastefany/credit-card-approval" target="_blank" class="btn btn-dark w-100">View Project</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="card flex-shrink-0" style="width: 300px;">
-        <img src="images/projects/2.jpg" class="card-img-top project-img" alt="Project 2">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Unlocking Housing Market Insights with Linear Regression</h5>
-          <p class="card-text">Implemented a Linear Regression model to forecast house prices, emphasizing data preparation, feature evaluation, and model performance metrics.</p>
-          <div class="mt-auto">
-            <a href="https://github.com/oliviastefany/regression-house" target="_blank" class="btn btn-dark w-100">View Project</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="card flex-shrink-0" style="width: 300px;">
-        <img src="images/projects/1.jpg" class="card-img-top project-img" alt="Project 1">
-        <div class="card-body d-flex flex-column">
-          <h5 class="card-title">Boosting Sales: Impact of a Training Program</h5>
-          <p class="card-text">Analyzed a small dataset of 25 transactions to evaluate the impact of a sales training program on average sales, highlighting measurable performance improvements.</p>
-          <div class="mt-auto">
-            <a href="https://github.com/oliviastefany/statistic-project" target="_blank" class="btn btn-dark w-100">View Project</a>
-          </div>
-        </div>
-      </div>
-    </div>
+      <div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <!-- slides -->
   </div>
-
-  <!-- Arrows -->
-  <button class="btn btn-dark position-absolute top-50 start-0 translate-middle-y" onclick="scrollProjects(-1)">‹</button>
-  <button class="btn btn-dark position-absolute top-50 end-0 translate-middle-y" onclick="scrollProjects(1)">›</button>
 </div>
+
+<!-- Panah di luar swiper -->
+<div class="custom-swiper-button-prev"></div>
+<div class="custom-swiper-button-next"></div>
+
 
 
 <!-- Bootstrap JS -->
@@ -546,7 +660,26 @@ h2::after {
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.9.5/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
 </body>
+<script>
+  const swiper = new Swiper(".mySwiper", {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      0: { slidesPerView: 1 },     // HP
+      576: { slidesPerView: 2 },   // small tablet
+      992: { slidesPerView: 3 },   // desktop/laptop
+    },
+  });
+</script>
+
 </html>
 
 
