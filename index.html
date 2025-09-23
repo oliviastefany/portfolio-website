@@ -74,69 +74,40 @@ h2::after {
 }
 
 /* Projects Section */
+/* Projects Section */
 .projects-section {
-    padding: 80px 20px;
+  padding: 80px 20px;
 }
 
 .projects-section .card {
-    background-color: #1b1b1b;
-    color: #ccc;
-    border: none;
-    border-radius: 10px;
-    transition: transform 0.3s, box-shadow 0.3s;
-    width: 300px;
-    height: 500px;   /* 🔑 semua card fix tinggi sama persis */
-    overflow: hidden; /* kalau isi terlalu panjang biar nggak ngebuka box */
-    display: flex;
-    flex-direction: column;
+  background-color: #1b1b1b !important; /* paksa override bootstrap */
+  color: #ccc !important;
+  border: none !important;
+  border-radius: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  height: 500px;   /* semua box sama tinggi */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .projects-section .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
 }
 
 .projects-section .card-img-top {
-    height: 180px;
-    object-fit: cover;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+  height: 180px;
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 .projects-section .card-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* teks di atas, tombol di bawah */
-}
-
-/* Buttons */
-.btn-primary,
-.btn-secondary {
-    border-radius: 50px;
-    transition: 0.3s;
-}
-
-.btn-primary {
-    background: #fff;
-    color: #111;
-    border: none;
-}
-
-.btn-primary:hover {
-    background: #888;
-    color: #fff;
-}
-
-.btn-secondary {
-    background: transparent;
-    color: #fff;
-    border: 2px solid #fff;
-}
-
-.btn-secondary:hover {
-    background: #fff;
-    color: #111;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 /* Skills Section */
