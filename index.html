@@ -31,16 +31,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        /* ========== CSS VARIABLES ========== */
+        /* ========== CSS VARIABLES - GALAXY THEME ========== */
         :root {
             --primary-purple: #8a2be2;
             --secondary-pink: #da70d6;
-            --accent-green: #4ade80;
-            --dark-bg: #111;
+            --accent-blue: #4cc9f0;
+            --accent-violet: #b388ff;
+            --dark-bg: #0a0e27;
+            --space-dark: #0f0c29;
             --card-bg: rgba(255, 255, 255, 0.05);
             --text-primary: #e0e0e0;
             --text-secondary: #ccc;
             --transition-speed: 0.3s;
+            --nebula-purple: #9d4edd;
+            --cosmic-blue: #4361ee;
         }
 
         /* ========== GENERAL STYLES ========== */
@@ -48,6 +52,110 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        /* ========== GALAXY BACKGROUND ========== */
+        .galaxy-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #0f0c29 100%);
+        }
+
+        /* Twinkling Stars - Subtle and Non-distracting */
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.2);
+            }
+        }
+
+        /* Generate random star positions */
+        .star:nth-child(1) { top: 10%; left: 20%; animation-delay: 0s; }
+        .star:nth-child(2) { top: 20%; left: 40%; animation-delay: 0.5s; }
+        .star:nth-child(3) { top: 30%; left: 60%; animation-delay: 1s; }
+        .star:nth-child(4) { top: 40%; left: 80%; animation-delay: 1.5s; }
+        .star:nth-child(5) { top: 50%; left: 10%; animation-delay: 2s; }
+        .star:nth-child(6) { top: 60%; left: 30%; animation-delay: 2.5s; }
+        .star:nth-child(7) { top: 70%; left: 50%; animation-delay: 0.3s; }
+        .star:nth-child(8) { top: 80%; left: 70%; animation-delay: 0.8s; }
+        .star:nth-child(9) { top: 15%; left: 90%; animation-delay: 1.3s; }
+        .star:nth-child(10) { top: 25%; left: 15%; animation-delay: 1.8s; }
+        .star:nth-child(11) { top: 35%; left: 35%; animation-delay: 2.3s; }
+        .star:nth-child(12) { top: 45%; left: 55%; animation-delay: 0.6s; }
+        .star:nth-child(13) { top: 55%; left: 75%; animation-delay: 1.1s; }
+        .star:nth-child(14) { top: 65%; left: 95%; animation-delay: 1.6s; }
+        .star:nth-child(15) { top: 75%; left: 25%; animation-delay: 2.1s; }
+        .star:nth-child(16) { top: 85%; left: 45%; animation-delay: 0.4s; }
+        .star:nth-child(17) { top: 5%; left: 65%; animation-delay: 0.9s; }
+        .star:nth-child(18) { top: 12%; left: 85%; animation-delay: 1.4s; }
+        .star:nth-child(19) { top: 22%; left: 5%; animation-delay: 1.9s; }
+        .star:nth-child(20) { top: 32%; left: 48%; animation-delay: 2.4s; }
+
+        /* Floating Nebula Clouds - Very Subtle */
+        .nebula {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.15;
+            animation: float-nebula 20s ease-in-out infinite;
+        }
+
+        @keyframes float-nebula {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            50% {
+                transform: translate(30px, 30px) scale(1.1);
+            }
+        }
+
+        .nebula-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+            animation-duration: 25s;
+        }
+
+        .nebula-2 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(76, 201, 240, 0.25) 0%, transparent 70%);
+            bottom: -80px;
+            left: -80px;
+            animation-duration: 30s;
+            animation-delay: 5s;
+        }
+
+        .nebula-3 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(218, 112, 214, 0.2) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation-duration: 35s;
+            animation-delay: 10s;
         }
 
         /* ========== SCROLL PROGRESS INDICATOR ========== */
@@ -63,19 +171,20 @@
 
         .progress-bar-scroll {
             height: 4px;
-            background: linear-gradient(90deg, var(--primary-purple), var(--secondary-pink), var(--accent-green));
+            background: linear-gradient(90deg, var(--primary-purple), var(--secondary-pink), var(--accent-blue));
             width: 0%;
             transition: width 0.1s ease;
             box-shadow: 0 0 10px rgba(138, 43, 226, 0.5);
         }
 
         body {
-            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            background: linear-gradient(135deg, #0a0e27, #1a1a2e, #0f0c29);
             color: var(--text-primary);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding-top: 70px;
             scroll-behavior: smooth;
             overflow-x: hidden;
+            position: relative;
         }
 
         h2 {
@@ -243,7 +352,7 @@
         }
 
         .hero-text .availability {
-            color: var(--accent-green);
+            color: var(--accent-blue);
             font-size: 1rem;
             margin-top: 10px;
             animation: fadeInUp 1.4s ease-out;
@@ -300,7 +409,7 @@
             left: -15px;
             right: -15px;
             bottom: -15px;
-            background: linear-gradient(45deg, var(--primary-purple), var(--secondary-pink), var(--accent-green), var(--primary-purple));
+            background: linear-gradient(45deg, var(--primary-purple), var(--secondary-pink), var(--accent-blue), var(--accent-violet), var(--primary-purple));
             border-radius: 50%;
             z-index: -1;
             animation: rotate 4s linear infinite;
@@ -369,7 +478,7 @@
             left: -40px;
             width: 100px;
             height: 100px;
-            border: 3px solid rgba(74, 222, 128, 0.3);
+            border: 3px solid rgba(76, 201, 240, 0.4);
             border-radius: 50%;
             animation: float 4s ease-in-out infinite reverse;
         }
@@ -450,7 +559,7 @@
             font-size: 1.1rem;
         }
 
-        /* ========== RESUME DOWNLOAD SECTION ========== */
+        /* ========== REQUEST RESUME SECTION ========== */
         .resume-section {
             padding: 60px 20px;
             background: linear-gradient(135deg, #1e1e3f 0%, #2a2a4e 100%);
@@ -583,14 +692,14 @@
             border-radius: 15px;
             padding: 35px;
             margin-bottom: 30px;
-            border-left: 5px solid var(--accent-green);
+            border-left: 5px solid var(--accent-blue);
             transition: all var(--transition-speed);
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
         }
 
         .education-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(74, 222, 128, 0.3);
+            box-shadow: 0 10px 30px rgba(76, 201, 240, 0.3);
             background: rgba(255, 255, 255, 0.08);
         }
 
@@ -604,7 +713,7 @@
         .education-icon {
             width: 60px;
             height: 60px;
-            background: linear-gradient(135deg, var(--accent-green), #22c55e);
+            background: linear-gradient(135deg, var(--accent-blue), var(--cosmic-blue));
             border-radius: 12px;
             display: flex;
             align-items: center;
@@ -621,7 +730,7 @@
         }
 
         .education-title .university {
-            color: var(--accent-green);
+            color: var(--accent-blue);
             font-size: 1.1rem;
             margin-top: 5px;
         }
@@ -636,7 +745,6 @@
             padding-left: 0;
             margin-top: 15px;
         }
-
 
         .cert-card {
             background: var(--card-bg);
@@ -683,22 +791,22 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #10b981, #059669);
+            background: linear-gradient(135deg, var(--accent-blue), var(--cosmic-blue));
             color: white;
             padding: 12px 30px;
             text-decoration: none;
             font-weight: bold;
             border-radius: 50px;
             transition: all var(--transition-speed);
-            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+            box-shadow: 0 4px 15px rgba(76, 201, 240, 0.3);
             font-size: 1rem;
         }
 
         .btn-verify:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.5);
+            box-shadow: 0 6px 20px rgba(76, 201, 240, 0.5);
             color: white;
-            background: linear-gradient(135deg, #059669, #047857);
+            background: linear-gradient(135deg, var(--cosmic-blue), #3d5af1);
         }
 
         .btn-verify i {
@@ -872,7 +980,7 @@
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            background: linear-gradient(135deg, var(--accent-green), #22c55e);
+            background: linear-gradient(135deg, var(--accent-blue), var(--cosmic-blue));
             color: white;
             padding: 18px 45px;
             text-decoration: none;
@@ -880,12 +988,12 @@
             font-size: 1.2rem;
             border-radius: 50px;
             transition: all var(--transition-speed);
-            box-shadow: 0 5px 20px rgba(74, 222, 128, 0.4);
+            box-shadow: 0 5px 20px rgba(76, 201, 240, 0.4);
         }
 
         .schedule-btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(74, 222, 128, 0.6);
+            box-shadow: 0 8px 30px rgba(76, 201, 240, 0.6);
             color: white;
         }
 
@@ -1084,6 +1192,36 @@
 </head>
 <body>
 
+<!-- ========== GALAXY BACKGROUND ========== -->
+<div class="galaxy-background">
+    <!-- Twinkling Stars -->
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    <div class="star"></div>
+    
+    <!-- Nebula Clouds -->
+    <div class="nebula nebula-1"></div>
+    <div class="nebula nebula-2"></div>
+    <div class="nebula nebula-3"></div>
+</div>
+
 <!-- ========== SCROLL PROGRESS INDICATOR ========== -->
 <div class="progress-container">
     <div class="progress-bar-scroll" id="progressBar"></div>
@@ -1131,7 +1269,7 @@
                         <i class="fas fa-paper-plane" aria-hidden="true"></i> Get in Touch
                     </a>
                     <a href="#resume" class="btn-secondary-custom">
-                        <i class="fas fa-download" aria-hidden="true"></i> Download Resume
+                        <i class="fas fa-file-pdf" aria-hidden="true"></i> Request Resume
                     </a>
                 </div>
             </div>
@@ -1156,16 +1294,19 @@
     </div>
 </section>
 
-<!-- ========== RESUME DOWNLOAD SECTION ========== -->
+<!-- ========== REQUEST RESUME SECTION ========== -->
 <section id="resume" class="resume-section">
     <div class="container">
-        <h2><i class="fas fa-file-pdf" aria-hidden="true"></i> My Resume</h2>
+        <h2><i class="fas fa-file-pdf" aria-hidden="true"></i> Request My Resume</h2>
         <p style="color: #ccc; max-width: 600px; margin: 0 auto 30px;">
-            Download my complete resume to learn more about my experience and skills.
+            Interested in my full resume? Click below to send me a request and I'll share it with you promptly.
         </p>
-        <a href="resume/Olivia_Stefany_Can_Resume.pdf" download class="resume-download-btn" aria-label="Download Resume PDF">
-            <i class="fas fa-download" aria-hidden="true"></i>
-            Download My Resume
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=oliviastefanyc@gmail.com&su=Resume%20Request%20from%20Portfolio&body=Hi%20Olivia,%0A%0AI%20would%20like%20to%20request%20your%20full%20resume.%0A%0AName:%20%0ACompany/Organization:%20%0APurpose:%20%0A%0ABest%20regards," 
+           target="_blank" 
+           class="resume-download-btn" 
+           aria-label="Request Resume via Email">
+            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+            Request My Resume
         </a>
     </div>
 </section>
@@ -1188,12 +1329,8 @@
                             <p class="university">Zhejiang University of Science and Technology</p>
                         </div>
                     </div>
-              
-                    </p>
                     <div class="education-details">
                         <p><strong>Major:</strong> Data Science and Big Data Technology</p>
-
-                        </div>
                     </div>
                 </article>
             </div>
@@ -1660,4 +1797,3 @@
 
 </body>
 </html>
-
