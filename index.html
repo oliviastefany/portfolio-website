@@ -54,7 +54,7 @@
             box-sizing: border-box;
         }
 
-        /* ========== GALAXY BACKGROUND ========== */
+        /* ========== ENHANCED GALAXY BACKGROUND ========== */
         .galaxy-background {
             position: fixed;
             top: 0;
@@ -64,7 +64,12 @@
             pointer-events: none;
             z-index: -1;
             overflow: hidden;
-            background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #0f0c29 100%);
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1a3f 25%, #16213e 50%, #1e1e3f 75%, #0f0c29 100%);
+        }
+
+        /* Ensure all background elements don't block clicks */
+        .galaxy-background * {
+            pointer-events: none;
         }
 
         /* Twinkling Stars - Subtle and Non-distracting */
@@ -110,12 +115,12 @@
         .star:nth-child(19) { top: 22%; left: 5%; animation-delay: 1.9s; }
         .star:nth-child(20) { top: 32%; left: 48%; animation-delay: 2.4s; }
 
-        /* Floating Nebula Clouds - Very Subtle */
+        /* Enhanced Floating Nebula Clouds */
         .nebula {
             position: absolute;
             border-radius: 50%;
             filter: blur(80px);
-            opacity: 0.15;
+            opacity: 0.2;
             animation: float-nebula 20s ease-in-out infinite;
         }
 
@@ -129,18 +134,18 @@
         }
 
         .nebula-1 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.3) 0%, transparent 70%);
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.4) 0%, rgba(138, 43, 226, 0.2) 50%, transparent 70%);
             top: -100px;
             right: -100px;
             animation-duration: 25s;
         }
 
         .nebula-2 {
-            width: 350px;
-            height: 350px;
-            background: radial-gradient(circle, rgba(76, 201, 240, 0.25) 0%, transparent 70%);
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(76, 201, 240, 0.35) 0%, rgba(67, 97, 238, 0.2) 50%, transparent 70%);
             bottom: -80px;
             left: -80px;
             animation-duration: 30s;
@@ -148,9 +153,9 @@
         }
 
         .nebula-3 {
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(218, 112, 214, 0.2) 0%, transparent 70%);
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, rgba(218, 112, 214, 0.3) 0%, rgba(179, 136, 255, 0.15) 50%, transparent 70%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -178,13 +183,24 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0a0e27, #1a1a2e, #0f0c29);
+            background: linear-gradient(135deg, #0a0e27, #1a1a3f, #16213e, #0f0c29);
             color: var(--text-primary);
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding-top: 70px;
             scroll-behavior: smooth;
             overflow-x: hidden;
             position: relative;
+        }
+
+        /* Ensure all links are clickable */
+        a {
+            cursor: pointer;
+            pointer-events: auto;
+        }
+
+        a:focus {
+            outline: 2px solid var(--primary-purple);
+            outline-offset: 2px;
         }
 
         h2 {
@@ -206,7 +222,7 @@
 
         /* ========== NAVBAR ========== */
         .navbar {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+            background: linear-gradient(135deg, #1a1a3f 0%, #16213e 50%, #0f3460 100%) !important;
             box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(138, 43, 226, 0.2);
@@ -267,7 +283,7 @@
         /* ========== HERO SECTION ========== */
         .hero-section {
             min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a1a3f 0%, #16213e 50%, #1e1e3f 100%);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -282,7 +298,7 @@
             position: absolute;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(138, 43, 226, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(157, 78, 221, 0.15) 0%, transparent 70%);
             border-radius: 50%;
             top: -250px;
             right: -250px;
@@ -294,7 +310,7 @@
             position: absolute;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(218, 112, 214, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(218, 112, 214, 0.12) 0%, transparent 70%);
             border-radius: 50%;
             bottom: -200px;
             left: -200px;
@@ -454,7 +470,7 @@
             height: 240px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid #1a1a2e;
+            border: 5px solid #1a1a3f;
             box-shadow: 0 0 50px rgba(138, 43, 226, 0.5), 0 0 100px rgba(218, 112, 214, 0.3);
             animation: imageFloat 6s ease-in-out infinite;
             position: relative;
@@ -496,12 +512,18 @@
             transition: all var(--transition-speed);
             border: none;
             box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+            cursor: pointer;
         }
 
         .btn-primary-custom:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(138, 43, 226, 0.6);
             color: white;
+            text-decoration: none;
+        }
+
+        .btn-primary-custom:active {
+            transform: translateY(-1px);
         }
 
         .btn-secondary-custom {
@@ -527,7 +549,7 @@
             position: fixed;
             bottom: 20px;
             right: 20px;
-            z-index: 1000;
+            z-index: 10000;
             background: linear-gradient(135deg, var(--primary-purple), var(--secondary-pink));
             color: white;
             padding: 12px 24px;
@@ -536,19 +558,29 @@
             border-radius: 50px;
             transition: all var(--transition-speed);
             box-shadow: 0 4px 15px rgba(138, 43, 226, 0.4);
+            cursor: pointer;
+            pointer-events: auto;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .email-button.fixed:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(138, 43, 226, 0.6);
             color: white;
+            text-decoration: none;
+        }
+
+        .email-button.fixed:active {
+            transform: translateY(-1px);
         }
 
         /* ========== ABOUT SECTION ========== */
         .about-section {
             text-align: center;
             padding: 80px 20px;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(26, 26, 63, 0.3);
         }
 
         .about-section p {
@@ -579,12 +611,18 @@
             border-radius: 50px;
             transition: all var(--transition-speed);
             box-shadow: 0 5px 20px rgba(138, 43, 226, 0.4);
+            cursor: pointer;
         }
 
         .resume-download-btn:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 30px rgba(138, 43, 226, 0.6);
             color: white;
+            text-decoration: none;
+        }
+
+        .resume-download-btn:active {
+            transform: translateY(-2px);
         }
 
         .resume-download-btn i {
@@ -678,13 +716,13 @@
         /* ========== CERTIFICATIONS SECTION ========== */
         .certifications-section {
             padding: 80px 20px;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(26, 26, 63, 0.3);
         }
 
         /* ========== EDUCATION SECTION ========== */
         .education-section {
             padding: 80px 20px;
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(26, 26, 63, 0.3);
         }
 
         .education-card {
@@ -816,7 +854,7 @@
         /* ========== PROJECTS SECTION ========== */
         .projects-section {
             padding: 80px 20px;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a1a3f 0%, #16213e 50%, #1e1e3f 100%);
         }
 
         .projects-section .col {
@@ -920,7 +958,7 @@
 
         /* ========== SKILLS SECTION ========== */
         .skills-section {
-            background: rgba(255, 255, 255, 0.02);
+            background: rgba(26, 26, 63, 0.3);
             padding: 80px 20px;
         }
 
@@ -1003,7 +1041,7 @@
 
         /* ========== CONTACT SECTION ========== */
         .contact-section {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1a1a3f 0%, #16213e 50%, #1e1e3f 100%);
             padding: 80px 20px;
             color: var(--text-secondary);
             text-align: center;
@@ -1302,7 +1340,8 @@
             Interested in my full resume? Click below to send me a request and I'll share it with you promptly.
         </p>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=oliviastefanyc@gmail.com&su=Resume%20Request%20from%20Portfolio&body=Hi%20Olivia,%0A%0AI%20would%20like%20to%20request%20your%20full%20resume.%0A%0AName:%20%0ACompany/Organization:%20%0APurpose:%20%0A%0ABest%20regards," 
-           target="_blank" 
+           target="_blank"
+           rel="noopener noreferrer"
            class="resume-download-btn" 
            aria-label="Request Resume via Email">
             <i class="fas fa-paper-plane" aria-hidden="true"></i>
@@ -1568,9 +1607,9 @@
 
             <div class="col-lg-6 mb-4">
                 <h5><i class="fas fa-brain" aria-hidden="true"></i> Deep Learning and AI</h5>
-                <div class="progress" role="progressbar" aria-label="Deep Learning proficiency" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar" style="width: 65%;">
-                        <span>65%</span>
+                <div class="progress" role="progressbar" aria-label="Deep Learning proficiency" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 80%;">
+                        <span>80%</span>
                     </div>
                 </div>
             </div>
@@ -1663,7 +1702,10 @@
 
 <!-- Floating Email Button -->
 <a href="https://mail.google.com/mail/?view=cm&fs=1&to=oliviastefanyc@gmail.com&su=Inquiry%20from%20Portfolio%20Website&body=Hi%20Olivia,%0A%0AI%20found%20your%20portfolio%20and%20would%20like%20to%20connect%20with%20you.%0A%0ABest%20regards," 
-   class="email-button fixed" aria-label="Send email to Olivia">
+   target="_blank"
+   rel="noopener noreferrer"
+   class="email-button fixed" 
+   aria-label="Send email to Olivia">
    <i class="fas fa-envelope" aria-hidden="true"></i> Email Me
 </a>
 
