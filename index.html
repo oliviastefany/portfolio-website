@@ -1463,7 +1463,40 @@
         <!-- First 3 Projects -->
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center">
             
-            <!-- Project 1: Brain Tumor Classification -->
+            <!-- Project 1: Smart Finance Budgeting System -->
+            <div class="col">
+                <article class="card">
+                    <img src="images/projects/5.jpg" class="card-img-top" alt="Smart Finance System" loading="lazy">
+                    <div class="card-body">
+                        <h5 class="card-title">Smart Finance Budgeting System</h5>
+                        <div class="tech-tags">
+                            <span class="badge">Python</span>
+                            <span class="badge">Time Series Forecasting</span>
+                            <span class="badge">Streamlit</span>
+                            <span class="badge">Prophet</span>
+                            <span class="badge">Plotly</span>
+                        </div>
+                        <p class="card-text">Built a multi-user personal finance dashboard with bcrypt auth, SQLite storage, 30-day Prophet spending forecasts, budgeting insights, and multi-currency conversion (real-time + offline). Built with Streamlit + Plotly.</p>
+                        <div class="mt-auto d-flex gap-2">
+                            <!-- GitHub Button -->
+                            <a href="https://github.com/oliviastefany/smart-finance-ml" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-dark flex-fill"
+                            aria-label="View Smart Finance Budgeting System project on GitHub">
+                                <i class="fab fa-github" aria-hidden="true"></i> GitHub
+                            </a>
+
+                            <!-- Live Demo Button -->
+                            <a href=" https://smartfinancedashboard.streamlit.app/" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-dark flex-fill"
+                            aria-label="View Smart Finance Budgeting System live demo">
+                                <i class="fas fa-external-link-alt" aria-hidden="true"></i> Live Demo
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+               <!-- Project 2: Brain Tumor Classification -->
             <div class="col">
                 <article class="card">
                     <img src="images/projects/3.jpg" class="card-img-top" alt="Brain CT scan showing tumor classification" loading="lazy">
@@ -1485,7 +1518,7 @@
                 </article>
             </div>
 
-            <!-- Project 2: Credit Card Approval -->
+            <!-- Project 3: Credit Card Approval -->
             <div class="col">
                 <article class="card">
                     <img src="images/projects/4.jpg" class="card-img-top" alt="Credit card approval prediction visualization" loading="lazy">
@@ -1505,8 +1538,19 @@
                     </div>
                 </article>
             </div>
+        </div>
 
-            <!-- Project 3: House Price Prediction -->
+        <!-- Toggle Button -->
+        <div class="text-center mt-5 mb-4">
+            <button id="toggle-projects-btn" onclick="toggleProjects()" aria-label="Toggle additional projects">
+                <i class="fas fa-plus-circle" aria-hidden="true"></i> See More Projects
+            </button>
+        </div>
+
+        <!-- Hidden Projects -->
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center" id="more-projects" style="display: none;">
+
+            <!-- Project 4: House Price Prediction -->
             <div class="col">
                 <article class="card">
                     <img src="images/projects/2.jpg" class="card-img-top" alt="Housing market price prediction chart" loading="lazy">
@@ -1527,19 +1571,7 @@
                 </article>
             </div>
 
-        </div>
-
-        <!-- Toggle Button -->
-        <div class="text-center mt-5 mb-4">
-            <button id="toggle-projects-btn" onclick="toggleProjects()" aria-label="Toggle additional projects">
-                <i class="fas fa-plus-circle" aria-hidden="true"></i> See More Projects
-            </button>
-        </div>
-
-        <!-- Hidden Projects -->
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 justify-content-center" id="more-projects" style="display: none;">
-            
-            <!-- Project 4: Sales Training Impact -->
+            <!-- Project 5: Sales Training Impact -->
             <div class="col">
                 <article class="card">
                     <img src="images/projects/1.jpg" class="card-img-top" alt="Sales performance improvement graph" loading="lazy">
@@ -1559,7 +1591,6 @@
                     </div>
                 </article>
             </div>
-
         </div>
     </div>
 </section>
