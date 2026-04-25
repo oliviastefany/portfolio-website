@@ -10,14 +10,14 @@
     <meta name="author" content="Olivia Stefany">
     
     <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="Olivia Stefany - Personal Portfolio">
+    <meta property="og:title" content="Olivia Stefany - Data Scientist & ML Engineer Portfolio">
     <meta property="og:description" content="Data Scientist & ML Engineer specializing in Machine Learning, Deep Learning, and AI">
     <meta property="og:type" content="website">
     <meta name="image" property="og:image" content="https://i.postimg.cc/LXBZLH2m/der.png">
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/osc.PNG?v=2">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/osc.PNG">
     
     <title>Olivia Stefany - Data Scientist & ML Engineer Portfolio</title>
 
@@ -223,6 +223,17 @@
         @keyframes aurora-wave {
             0%, 100% { opacity: 0.5; transform: scaleX(1); }
             50%       { opacity: 1;   transform: scaleX(1.04); }
+        }
+
+        /* ========== MOBILE GALAXY REDUCTION ========== */
+        @media (max-width: 768px) {
+            .nebula-1 { width: 250px; height: 250px; opacity: 0.2; }
+            .nebula-2 { width: 220px; height: 220px; opacity: 0.18; }
+            .nebula-3 { width: 180px; height: 180px; opacity: 0.15; }
+            .nebula-4, .nebula-5, .nebula-6 { display: none; }
+            .shooting-star { display: none; }
+            .galaxy-core { width: 350px; height: 350px; opacity: 0.4; }
+            .aurora { height: 150px; opacity: 0.5; }
         }
 
         /* ========== SCROLL PROGRESS INDICATOR ========== */
@@ -1420,6 +1431,7 @@
                     </div>
                     <div class="education-details">
                         <p><strong>Major:</strong> Data Science and Big Data Technology</p>
+                        <p><strong>Expected Graduation:</strong> 2027</p>
                     </div>
                 </article>
             </div>
@@ -1434,7 +1446,39 @@
         
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <!-- Experience Card -->
+                <!-- Experience Card: AI in Education Research -->
+                <article class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-icon" aria-hidden="true">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                        <div class="experience-title">
+                            <h3> Researcher  — AI in Education</h3>
+                            <p class="company">Zhejiang University of Science and Technology</p>
+                        </div>
+                    </div>
+                    <p class="experience-date">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i> April 2026 - Present
+                    </p>
+                </article>
+
+                <!-- Experience Card: Alzheimer's Research -->
+                <article class="experience-card">
+                    <div class="experience-header">
+                        <div class="experience-icon" aria-hidden="true">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="experience-title">
+                            <h3>AI Researcher — Alzheimer's Disease Detection from Spontaneous Speech</h3>
+                            <p class="company">Zhejiang University of Science and Technology</p>
+                        </div>
+                    </div>
+                    <p class="experience-date">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i> January 2026 - Present
+                    </p>
+                </article>
+
+                <!-- Experience Card: Causalmind -->
                 <article class="experience-card">
                     <div class="experience-header">
                         <div class="experience-icon" aria-hidden="true">
@@ -1446,7 +1490,7 @@
                         </div>
                     </div>
                     <p class="experience-date">
-                        <i class="far fa-calendar-alt" aria-hidden="true"></i> September 2025 - Present
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i> September 2025 - December 2025
                     </p>
                     <div class="experience-description">
                         <p>Working on cutting-edge research to build an <strong>LLM-driven causal graph discovery system</strong> that combines Large Language Models with graph databases for automated causal relationship identification.</p>
@@ -1492,6 +1536,9 @@
                     <h5>Data Scientist</h5>
                     <p class="issuer">
                         <i class="fas fa-graduation-cap" aria-hidden="true"></i> Kelas.com
+                    </p>
+                    <p class="date">
+                        <i class="far fa-calendar-alt" aria-hidden="true"></i> September 2025
                     </p>
                     <p class="date">
                         <i class="fas fa-id-card" aria-hidden="true"></i> Certificate ID: <strong>CERT-13B86355</strong>
@@ -1734,7 +1781,7 @@
         <p style="font-size: 0.95rem; margin-bottom: 40px;">
             <i class="fas fa-clock" aria-hidden="true"></i> I typically respond within 24 hours
         </p>
-        <a href="https://calendly.com/oliviastefanyc/30min" target="_blank" rel="noopener noreferrer" class="schedule-btn" aria-label="Schedule a meeting via Calendly">
+        <a href="https://calendly.com/oliviastefany/30min" target="_blank" rel="noopener noreferrer" class="schedule-btn" aria-label="Schedule a meeting via Calendly">
             <i class="fas fa-calendar-plus" aria-hidden="true"></i>
             Schedule a Meeting
         </a>
@@ -1922,7 +1969,8 @@
         resize();
         window.addEventListener('resize', resize);
         const COLORS = ['255,255,255','200,220,255','255,210,255','180,200,255','255,255,200','220,255,255'];
-        const stars = Array.from({ length: 260 }, () => {
+        const starCount = window.innerWidth < 768 ? 80 : 260;
+        const stars = Array.from({ length: starCount }, () => {
             const r = Math.random() * 1.8 + 0.3;
             return { x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight, r,
                 color: COLORS[Math.floor(Math.random() * COLORS.length)],
